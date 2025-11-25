@@ -40,6 +40,8 @@ public class ProductEntity {
     @NotNull
     private Integer stock;
 
+    @NotBlank
+    private String currency;
 
 }
 

@@ -11,7 +11,8 @@ public record ProductResponseDTO(
         String name,
         String description,
         Double price,
-        Integer stock
+        Integer stock,
+        String currency
 
 ) {
     public static ProductResponseDTO fromDomain(ProductDomain domain) {
@@ -21,7 +22,8 @@ public record ProductResponseDTO(
                 domain.getName(),
                 domain.getDescription(),
                 domain.getPrice(),
-                domain.getStock()
+                domain.getStock(),
+                domain.getCurrency()
         );
     }
 

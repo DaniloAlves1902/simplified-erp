@@ -16,5 +16,6 @@ public class ProductDomain {
     private String description;
     private Double price;
     private Integer stock;
+    private String currency;
 
 }
