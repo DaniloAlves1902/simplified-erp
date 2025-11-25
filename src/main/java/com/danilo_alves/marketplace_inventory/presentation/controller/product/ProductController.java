@@ -71,14 +71,7 @@ public class ProductController {
                 dto.name(),
                 dto.description(),
                 dto.price(),
-                dto.stock(),
-                dto.currencyId(),
-                dto.categoryId(),
-                dto.listingTypeId(),
-                dto.condition(),
-                dto.warranty(),
-                dto.images(),
-                dto.attributes()
+                dto.stock()
         );
     }
 }

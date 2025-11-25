@@ -5,9 +5,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
-import java.util.Map;
-
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -20,12 +17,4 @@ public class ProductDomain {
     private Double price;
     private Integer stock;
 
-    private String currencyId;
-    private String categoryId;
-    private String listingTypeId;
-    private String condition;
-    private String warranty;
-
-    private List<String> images;
-    private Map<String, String> attributes;
 }

@@ -3,7 +3,6 @@ package com.danilo_alves.marketplace_inventory.presentation.dto.product;
 import com.danilo_alves.marketplace_inventory.domain.entity.product.ProductDomain;
 
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 public record ProductResponseDTO(
@@ -12,14 +11,8 @@ public record ProductResponseDTO(
         String name,
         String description,
         Double price,
-        Integer stock,
-        String currencyId,
-        String categoryId,
-        String listingTypeId,
-        String condition,
-        String warranty,
-        List<String> images,
-        Map<String, String> attributes
+        Integer stock
+
 ) {
     public static ProductResponseDTO fromDomain(ProductDomain domain) {
         return new ProductResponseDTO(
@@ -28,14 +21,7 @@ public record ProductResponseDTO(
                 domain.getName(),
                 domain.getDescription(),
                 domain.getPrice(),
-                domain.getStock(),
-                domain.getCurrencyId(),
-                domain.getCategoryId(),
-                domain.getListingTypeId(),
-                domain.getCondition(),
-                domain.getWarranty(),
-                domain.getImages(),
-                domain.getAttributes()
+                domain.getStock()
         );
     }
 

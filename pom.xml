@@ -8,9 +8,9 @@
 		<version>3.5.5</version>
 		<relativePath/> </parent>
 	<groupId>com.danilo-alves</groupId>
-	<artifactId>marketplace-inventory</artifactId>
+	<artifactId>inventory-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>marketplace-inventory</name>
+	<name>inventory-api</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
