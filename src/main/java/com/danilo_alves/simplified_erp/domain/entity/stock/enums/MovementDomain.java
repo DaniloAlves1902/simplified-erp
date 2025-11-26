@@ -1,4 +1,4 @@
-package com.danilo_alves.simplified_erp.domain.enums.stock;
+package com.danilo_alves.simplified_erp.domain.entity.stock.enums;
 
 public enum MovementDomain {
     SALE,

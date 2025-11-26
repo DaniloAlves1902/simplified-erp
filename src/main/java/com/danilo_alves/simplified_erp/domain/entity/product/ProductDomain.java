@@ -15,7 +15,20 @@ public class ProductDomain {
     private String name;
     private String description;
     private Double price;
-    private Integer stock;
     private String currency;
+    private Integer stock;
+
+    public void creditStock(Integer quantity) {
+        if (quantity <= 0) throw new IllegalArgumentException("Quantity must be positive");
+        this.stock += quantity;
+    }
+
+    public void debitStock(Integer quantity) {
+        if (quantity <= 0) throw new IllegalArgumentException("Quantity must be positive");
+        if (this.stock < quantity) {
+            throw new IllegalArgumentException("Insufficient stock for the product: " + this.name);
+        }
+        this.stock -= quantity;
+    }
 
 }

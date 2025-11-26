@@ -1,8 +1,8 @@
 package com.danilo_alves.simplified_erp.domain.entity.stock;
 
 import com.danilo_alves.simplified_erp.domain.entity.product.ProductDomain;
+import com.danilo_alves.simplified_erp.domain.entity.stock.enums.MovementDomain;
 import com.danilo_alves.simplified_erp.domain.entity.user.UserDomain;
-import com.danilo_alves.simplified_erp.domain.enums.stock.MovementDomain;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,6 +20,6 @@ public class StockMovementDomain {
     private Integer quantityChanged;
     private OffsetDateTime timeStamp;
     private UserDomain changedBy;
-    private MovementDomain movementType;
+    private MovementDomain movementTypeDomain;
 
 }

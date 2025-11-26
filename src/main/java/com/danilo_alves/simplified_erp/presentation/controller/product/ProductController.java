@@ -71,8 +71,8 @@ public class ProductController {
                 dto.name(),
                 dto.description(),
                 dto.price(),
-                dto.stock(),
-                dto.currency()
+                dto.currency(),
+                dto.stock()
         );
     }
 }
