@@ -1,6 +1,7 @@
 package com.danilo_alves.simplified_erp.presentation.controller.stock;
 
 import com.danilo_alves.simplified_erp.application.gateway.user.UserGateway;
+import com.danilo_alves.simplified_erp.application.usecase.stock.GetAllStockMovement;
 import com.danilo_alves.simplified_erp.application.usecase.stock.RegisterStockMovement;
 import com.danilo_alves.simplified_erp.domain.entity.product.ProductDomain;
 import com.danilo_alves.simplified_erp.domain.entity.stock.StockMovementDomain;
@@ -13,12 +14,10 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/movements")
@@ -27,6 +26,7 @@ public class StockMovementController {
 
     private final UserGateway userGateway;
     private final RegisterStockMovement registerStockMovement;
+    private final GetAllStockMovement getAllStockMovement;
 
     @PostMapping
     @PreAuthorize("hasAnyRole('HOST', 'ADMIN')")
@@ -49,6 +49,14 @@ public class StockMovementController {
 
         StockMovementResponseDTO response = StockMovementResponseDTO.fromDomain(savedMovement);
         return ResponseEntity.created(URI.create("/api/v1/stocks/" + response.id())).body(response);
+    }
+
+    @GetMapping
+    @PreAuthorize("hasAnyRole('ADMIN')")
+    public ResponseEntity<List<StockMovementResponseDTO>> getAll() {
+        List<StockMovementDomain> movements = getAllStockMovement.execute(null);
+        List<StockMovementResponseDTO> response = StockMovementResponseDTO.fromDomain(movements);
+        return ResponseEntity.ok(response);
     }
 
     private String getLoggedUsername() {
