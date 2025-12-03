@@ -17,7 +17,7 @@ public class RegisterStockMovementUseCase implements RegisterStockMovement {
 
     @Override
     public StockMovementDomain execute(StockMovementDomain movement) {
-        Long productId = movement.getProduct().getId();
+        String productId = movement.getProduct().getId();
         ProductDomain product = stockGateway.findProductById(productId)
                 .orElseThrow(() -> new ProductNotFoundException(productId));
 

@@ -24,7 +24,7 @@ public class StockMovementGatewayImpl implements StockGateway {
     private final StockMovementMapper stockMovementMapper;
 
     @Override
-    public Optional<ProductDomain> findProductById(Long id) {
+    public Optional<ProductDomain> findProductById(String id) {
         return productRepository.findById(id)
                 .map(productMapper::toDomain);
     }
@@ -49,12 +49,10 @@ public class StockMovementGatewayImpl implements StockGateway {
     }
 
     @Override
-    public StockMovementDomain getById(Long id) {
+    public StockMovementDomain getById(String id) {
         return stockMovementRepository.findById(id)
                 .map(stockMovementMapper::toDomain)
                 .orElseThrow(() -> new MovementNotFoundException(id));
     }
-
-
 
 }

@@ -7,8 +7,8 @@ import java.util.List;
 import java.util.Optional;
 
 public interface StockGateway {
-    Optional<ProductDomain> findProductById(Long id);
+    Optional<ProductDomain> findProductById(String id);
     StockMovementDomain  updateStock(ProductDomain product, StockMovementDomain movement);
     List<StockMovementDomain> getAll();
-    StockMovementDomain getById(Long id);
+    StockMovementDomain getById(String id);
 }

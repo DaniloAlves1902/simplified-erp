@@ -10,7 +10,7 @@ public class GetByIdProductUseCase implements GetByIdProduct {
     private final ProductGateway productGateway;
 
     @Override
-    public ProductDomain execute(Long id) {
+    public ProductDomain execute(String id) {
         return productGateway.getById(id);
     }
 }

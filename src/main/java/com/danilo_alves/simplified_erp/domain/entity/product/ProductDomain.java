@@ -10,7 +10,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ProductDomain {
-    private Long id;
+    private String id;
     private Long version;
     private String sku;
     private String name;

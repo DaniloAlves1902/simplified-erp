@@ -33,7 +33,7 @@ public class ProductController {
 
     @PutMapping("/{id}")
     @PreAuthorize("hasAnyRole('HOST', 'ADMIN')")
-    public ResponseEntity<ProductResponseDTO> update(@PathVariable Long id, @RequestBody ProductRequestDTO dto) {
+    public ResponseEntity<ProductResponseDTO> update(@PathVariable String id, @RequestBody ProductRequestDTO dto) {
         ProductDomain productToUpdate = toDomain(dto);
         productToUpdate.setId(id);
         ProductDomain updatedProduct = updateProduct.execute(productToUpdate);
@@ -51,7 +51,7 @@ public class ProductController {
 
     @GetMapping("/{id}")
     @PreAuthorize("hasAnyRole('HOST', 'ADMIN')")
-    public ResponseEntity<ProductResponseDTO> getById(@PathVariable Long id) {
+    public ResponseEntity<ProductResponseDTO> getById(@PathVariable String id) {
         ProductDomain product = getByIdProduct.execute(id);
         ProductResponseDTO response = ProductResponseDTO.fromDomain(product);
         return ResponseEntity.ok(response);
@@ -59,7 +59,7 @@ public class ProductController {
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<Void> delete(@PathVariable Long id) {
+    public ResponseEntity<Void> delete(@PathVariable String id) {
         deleteProduct.execute(id);
         return ResponseEntity.noContent().build();
     }

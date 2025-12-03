@@ -9,7 +9,7 @@ public class DeleteProductUseCase implements DeleteProduct {
     private final ProductGateway productGateway;
 
     @Override
-    public Void execute(Long id) {
+    public Void execute(String id) {
         if (id == null) {
             throw new IllegalArgumentException("id not found");
         }

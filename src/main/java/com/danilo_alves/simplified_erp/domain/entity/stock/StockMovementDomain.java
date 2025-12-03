@@ -15,7 +15,7 @@ import java.time.OffsetDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class StockMovementDomain {
-    private Long id;
+    private String id;
     private ProductDomain product;
     private Integer quantityChanged;
     private OffsetDateTime timeStamp;

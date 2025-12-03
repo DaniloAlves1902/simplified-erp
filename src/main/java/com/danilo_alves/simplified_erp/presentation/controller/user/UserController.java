@@ -68,6 +68,7 @@ public class UserController {
         return ResponseEntity.noContent().build();
     }
 
+    // Temporary method to convert DTO to Domain
     private UserDomain toDomain(UserRequestDTO dto) {
         return new UserDomain(
                 null,

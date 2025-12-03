@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public record StockMovementResponseDTO(
-        Long id,
+        String id,
         String productName,
         Integer quantity,
         MovementDomain type,

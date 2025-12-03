@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public record ProductResponseDTO(
-        Long id,
+        String id,
         String sku,
         String name,
         String description,

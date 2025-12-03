@@ -35,7 +35,7 @@ public class ProductGatewayImpl implements ProductGateway {
     }
 
     @Override
-    public void delete(Long id) {
+    public void delete(String id) {
         if (!productRepositoryJPA.existsById(id)) {
             throw new ProductNotFoundException(id);
         }
@@ -50,7 +50,7 @@ public class ProductGatewayImpl implements ProductGateway {
     }
 
     @Override
-    public ProductDomain getById(Long id) {
+    public ProductDomain getById(String id) {
         return productRepositoryJPA.findById(id)
                 .map(productMapper::toDomain)
                 .orElseThrow(() -> new ProductNotFoundException(id));
